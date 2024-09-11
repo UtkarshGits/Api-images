@@ -1,5 +1,5 @@
 import './App.css';
-import { Api, Api2, Api3,Api4, Api5 } from './Api';
+import { Api, Api2, Api3, Api4, Api5, Api6 ,Api7 } from './Api';
 
 import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
@@ -11,13 +11,16 @@ function App() {
   const [data3, setData3] = useState([]);
   const [data4, setData4] = useState([]);
   const [data5, setData5] = useState([]);
-
+  const [data6, setData6] = useState([]);
+  const [data7, setData7] = useState([]);
   useEffect(() => {
     setData(Api);
     setData2(Api2);
     setData3(Api3);
     setData4(Api4);
     setData5(Api5);
+    setData6(Api6);
+    setData7(Api7);
   }, []);
 
   return (
@@ -165,9 +168,57 @@ function App() {
               </div>
             ))}
           </div>
+          <div className='product-container'>
+            {data2 && data6.map((item, index) => (
+              <div className='product-card' key={index}>
+                <div className='product-image'>
+                  <img src={item.product} alt={item.product_name} />
+                </div>
+                <p className='product-name'>{item.product_name}</p>
+
+                <div className='rating'>
+                  <FaStar className='star-icon' />
+                  <span>{item.rateing}</span>
+                </div>
+
+                <div className='pricing'>
+                  <p className='current-price'>₹{item.current_price}</p>
+                  <div className='mrp-discount'>
+                    <p className='mrp'>₹{item.mrp}</p>
+                    <p className='discount'>{item.discount}% off</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className='product-container'>
+            {data2 && data7.map((item, index) => (
+              <div className='product-card' key={index}>
+                <div className='product-image'>
+                  <img src={item.product} alt={item.product_name} />
+                </div>
+                <p className='product-name'>{item.product_name}</p>
+
+                <div className='rating'>
+                  <FaStar className='star-icon' />
+                  <span>{item.rateing}</span>
+                </div>
+
+                <div className='pricing'>
+                  <p className='current-price'>₹{item.current_price}</p>
+                  <div className='mrp-discount'>
+                    <p className='mrp'>₹{item.mrp}</p>
+                    <p className='discount'>{item.discount}% off</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
-    {/* <div><ImageSlider/></div> */}
+      {/* <div><ImageSlider/></div> */}
     </div>
 
   );
