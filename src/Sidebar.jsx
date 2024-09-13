@@ -6,7 +6,6 @@ function Sidebar() {
     'Fruits & Vegetables',
     'Dairy & Bakery',
     'Snacks & Beverages',
-    'Staples',
     'Personal Care',
     'Home Care',
     'Meat & Seafood',

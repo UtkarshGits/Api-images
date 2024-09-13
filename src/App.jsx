@@ -1,5 +1,5 @@
 import './App.css';
-import { Api, Api2, Api3, Api4, Api5, Api6 ,Api7,Api8 } from './Api';
+import { Api, Api2, Api3, Api4, Api5, Api6 ,Api7,Api8,Api9 } from './Api';
 
 import { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
@@ -14,6 +14,7 @@ function App() {
   const [data6, setData6] = useState([]);
   const [data7, setData7] = useState([]);
   const [data8, setData8] = useState([]);
+  const [data9, setData9] = useState([]);
   useEffect(() => {
     setData(Api);
     setData2(Api2);
@@ -23,6 +24,7 @@ function App() {
     setData6(Api6);
     setData7(Api7);
     setData8(Api8);
+    setData9(Api9);
   }, []);
 
   return (
@@ -236,6 +238,28 @@ function App() {
               </div>
             ))}
           </div>
+          <div className='product-container'>
+            {data2 && data9.map((item, index) => (
+              <div className='product-card' key={index}>
+                <div className='product-image'>
+                  <img src={item.product} alt={item.product_name} />
+                </div>
+                <p className='product-name'>{item.product_name}</p>
+                <div className='rating'>
+                  <FaStar className='star-icon' />
+                  <span>{item.rateing}</span>
+                </div>
+                <div className='pricing'>
+                  <p className='current-price'>₹{item.current_price}</p>
+                  <div className='mrp-discount'>
+                    <p className='mrp'>₹{item.mrp}</p>
+                    <p className='discount'>{item.discount}% off</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
 
 
         </div>
